@@ -1,6 +1,5 @@
 <img width="1534" height="243" alt="anagram game banner" src="https://github.com/user-attachments/assets/b8a9b0e4-7495-4fbb-9329-785834cbdabf" />
 
-<img width="1774" height="887" alt="banner 2" src="https://github.com/user-attachments/assets/4c7100cd-3239-4af8-8ec7-4f55948d4b66" />
 
 ### CÓDIGO EXPLICADO
 
