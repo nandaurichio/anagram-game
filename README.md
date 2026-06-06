@@ -1,8 +1,4 @@
 <img width="1534" height="243" alt="anagram game banner" src="https://github.com/user-attachments/assets/b8a9b0e4-7495-4fbb-9329-785834cbdabf" />
-
-
-### CÓDIGO EXPLICADO
-
 ## Como rodar
 1. Certifique-se de ter o Python instalado na sua máquina.
 2. Clone este repositório ou baixe os arquivos.
@@ -11,6 +7,9 @@
    ```bash
    python jogo.py
 
+
+   
+### CÓDIGO EXPLICADO
 ### 1. Preparação e Estilo (Imports e Constantes)
 
 ```python
