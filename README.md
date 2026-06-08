@@ -1,97 +1,67 @@
 <img width="1534" height="243" alt="anagram game banner" src="https://github.com/user-attachments/assets/b8a9b0e4-7495-4fbb-9329-785834cbdabf" />
 
+# Anagram Game
 
-## Como rodar
-1. Certifique-se de ter o Python instalado na sua máquina.
-2. Clone este repositório ou baixe os arquivos.
-3. No seu terminal, navegue até a pasta do projeto.
-4. Execute o comando:
-   ```bash
-   python jogo.py
+Um jogo de anagramas desenvolvido em Python para terminal, inspirado na estética retrô dos sistemas MS-DOS.
 
+O projeto foi criado durante minha participação no Code in Place 2026 com o objetivo de praticar lógica de programação, manipulação de strings, organização de código e experiência do usuário em aplicações de terminal.
 
-   
-### CÓDIGO EXPLICADO
-### 1. Preparação e Estilo (Imports e Constantes)
+## Objetivos do Projeto
 
-```python
-import random
+* Praticar programação em Python
+* Trabalhar com estruturas de dados
+* Aplicar modularização e separação de responsabilidades
+* Desenvolver lógica de validação e controle de fluxo
+* Criar uma experiência de usuário simples e divertida no terminal
 
-# Códigos ANSI para o estilo retrô
-RESET = "\033[0m"
-# ... (outras constantes de cores)
+## Funcionalidades
 
+* Seleção aleatória de palavras
+* Embaralhamento dinâmico de caracteres
+* Sistema de dicas
+* Controle de tentativas
+* Interface estilizada utilizando códigos ANSI
+* Reinício de partidas sem reiniciar o programa
+
+## Tecnologias Utilizadas
+
+* Python
+* Biblioteca padrão `random`
+* Códigos ANSI para estilização visual
+
+## Conceitos Praticados
+
+### Estruturas de Dados
+
+As palavras e dicas são armazenadas em um dicionário Python, permitindo separar o conteúdo da lógica do jogo e facilitando futuras expansões.
+
+### Modularização
+
+O projeto foi organizado em funções independentes responsáveis por tarefas específicas, como exibição da interface, embaralhamento das palavras e execução das rodadas.
+
+### Tratamento de Entrada
+
+O jogo realiza normalização das respostas do usuário utilizando métodos como `strip()` e `upper()`, tornando a experiência mais robusta e amigável.
+
+### Controle de Fluxo
+
+Loops, condicionais e validações controlam as rodadas, tentativas e reinicialização da aplicação.
+
+## Como Executar
+
+1. Certifique-se de possuir o Python instalado.
+2. Clone este repositório.
+3. Navegue até a pasta do projeto.
+4. Execute:
+
+```bash
+python jogo.py
 ```
 
-* **`import random`**: Essa é a biblioteca padrão do Python que nos permite "sortear" coisas. Sem ela, o jogo seria sempre igual. Usamos para escolher a palavra secreta e para embaralhar as letras.
-* **As Constantes de Cores**: Aqueles `\033[...]` são códigos de escape ANSI. Eles não são uma biblioteca, são comandos diretos que dizem ao terminal: *"Ei, terminal, mude a cor do que você imprimir a partir de agora"*. Isso torna o código **portável** (funciona em qualquer terminal sem precisar instalar nada externo).
+## Aprendizados
 
-### 2. O Banco de Dados
+Este projeto permitiu aprofundar conhecimentos em lógica de programação, manipulação de dados, organização de código e desenvolvimento de aplicações executadas diretamente no terminal.
 
-```python
-anagram_db = { ... }
+---
 
-```
-
-* Usamos um **dicionário**. É a estrutura perfeita aqui: a **chave** (`PYTHON`) é o que o usuário precisa acertar, e o **valor** (`"The programming language..."`) é a dica. Se você quiser adicionar 100 palavras novas, é só atualizar esse dicionário, sem precisar tocar na lógica do jogo.
-
-### 3. As Funções de Apoio (O "Motor")
-
-* **`print_banner()`**: É puramente cosmética. Serve para dar o tom de "sistema inicializado" e criar a experiência nostálgica que você gostou.
-* **`scramble_word(word)`**: Aqui mora a lógica do desafio.
-* Transformamos a string em lista (`list(word)`), pois strings são imutáveis no Python.
-* `random.shuffle(chars)` mistura a lista.
-* O `while True` é uma salvaguarda: garantimos que, se o sorteio acidentalmente gerar a palavra correta original, ele embaralha de novo até ser diferente.
-
-
-
-### 4. A Lógica da Rodada (`play_one_round`)
-
-Esta função contém o coração do jogo:
-
-* **Sorteio**: `random.choice(list(anagram_db.keys()))` pega uma chave aleatória do dicionário.
-* **Loop de Tentativas (`while attempts > 0`)**: É aqui que controlamos a "vida" do jogador.
-* **Tratamento de Entrada (`.upper().strip()`)**: Isso é uma boa prática fundamental.
-* `.upper()`: Se o usuário digitar "python" ou "Python", ele converte tudo para maiúsculo, evitando que a pessoa erre por causa de caixa alta/baixa.
-* `.strip()`: Remove espaços em branco acidentais antes ou depois da palavra.
-
-
-
-### 5. O Fluxo de Controle (`main`)
-
-```python
-def main():
-    print_banner()
-    while True:
-        play_one_round()
-        # ... lógica de reiniciar ...
-
-```
-
-* O `while True` aqui cria o **loop principal**. O jogo nunca "acaba" de verdade até o usuário decidir sair.
-* **A verificação de saída**: Quando perguntamos `Do you want to play again?`, verificamos se o usuário digitou `y`. Se não for `y`, usamos o `break` para encerrar o loop do `while` e parar o programa.
-
-### 6. O Ponto de Entrada
-
-```python
-if __name__ == "__main__":
-    main()
-
-```
-
-* Isso é a "assinatura" de um programador experiente. Serve para dizer ao Python: *"Só execute a função `main()` se este arquivo for o arquivo principal que você abriu"*. Se um dia você importar esse arquivo dentro de outro projeto maior, esse código não vai rodar sozinho sem permissão.
-
-### 7. Por que este design?
-Optei por não utilizar bibliotecas externas complexas para manter o projeto "portável". O uso de Códigos ANSI permite criar uma interface com bordas e cores no terminal, mantendo o visual "MS-DOS" clássico que facilita o foco do usuário no desafio principal.
-
-### 8. Autor
-Desenvolvido por Fernanda Aurichio.
-Projeto realizado como parte da jornada de aprendizado no Code in Place 2026.
-
-
-
-
-
-
-
-
+Desenvolvido por Fernanda Aurichio durante o Code in Place 2026.
