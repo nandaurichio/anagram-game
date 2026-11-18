@@ -18,11 +18,14 @@ def print_banner():
     print(f"{CYAN}" + "+" + "-" * 50 + f"{RESET}\n")
 
 def scramble_word(word):
-    """Embaralha a palavra garantindo que não seja igual à original."""
-    chars = list(word)
+    """Embaralha as letras da palavra, mantendo os espaços onde estão
+    (ex.: VAN GOGH), e garante que o resultado não seja igual à original."""
+    letters = [c for c in word if c != " "]
     while True:
-        random.shuffle(chars)
-        scrambled = "".join(chars)
+        random.shuffle(letters)
+        # Reconstrói a palavra: espaço continua no lugar, letras vêm embaralhadas
+        letters_iter = iter(letters)
+        scrambled = "".join(" " if c == " " else next(letters_iter) for c in word)
         if scrambled != word:
             return scrambled
 

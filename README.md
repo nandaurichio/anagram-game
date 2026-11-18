@@ -2,7 +2,7 @@
 
 # Anagram Game
 
-Um jogo de anagramas desenvolvido em Python para terminal, inspirado na estética retrô dos sistemas MS-DOS.
+Um jogo de anagramas desenvolvido em Python para terminal, inspirado na estética retrô dos sistemas MS-DOS. A interface do jogo é em inglês.
 
 O projeto foi criado durante minha participação no Code in Place 2026 com o objetivo de praticar lógica de programação, manipulação de strings, organização de código e experiência do usuário em aplicações de terminal.
 
@@ -14,18 +14,32 @@ O projeto foi criado durante minha participação no Code in Place 2026 com o ob
 * Desenvolver lógica de validação e controle de fluxo
 * Criar uma experiência de usuário simples e divertida no terminal
 
+## Como funciona
+
+A cada rodada o jogo sorteia uma palavra, embaralha as letras e mostra uma dica. Você tem 3 tentativas para descobrir a palavra.
+
+```text
+[INFO] Current Task: Unscramble the code.
+-------------------------------------------------------
+CLUE: The versatile programming language you are mastering.
+WORD: YTHNOP
+-------------------------------------------------------
+ENTER_GUESS (3 left) >
+```
+
 ## Funcionalidades
 
-* Seleção aleatória de palavras
-* Embaralhamento dinâmico de caracteres
-* Sistema de dicas
-* Controle de tentativas
+* Seleção aleatória entre 46 palavras, organizadas em 7 categorias
+* Embaralhamento dinâmico das letras, garantindo que o resultado nunca seja igual à palavra original
+* Palavras com espaço (como `VAN GOGH`) mantêm o espaço no lugar, então o jogador vê onde a palavra se divide
+* Uma dica exibida em cada rodada
+* Controle de tentativas (3 por rodada)
 * Interface estilizada utilizando códigos ANSI
 * Reinício de partidas sem reiniciar o programa
 
 ## Tecnologias Utilizadas
 
-* Python
+* Python 3
 * Biblioteca padrão `random`
 * Códigos ANSI para estilização visual
 
@@ -33,7 +47,7 @@ O projeto foi criado durante minha participação no Code in Place 2026 com o ob
 
 ### Estruturas de Dados
 
-As palavras e dicas são armazenadas em um dicionário Python, permitindo separar o conteúdo da lógica do jogo e facilitando futuras expansões.
+As palavras e dicas são armazenadas em um dicionário Python (`dados.py`), separado da lógica do jogo, o que facilita adicionar novas palavras.
 
 ### Modularização
 
@@ -41,26 +55,27 @@ O projeto foi organizado em funções independentes responsáveis por tarefas es
 
 ### Tratamento de Entrada
 
-O jogo realiza normalização das respostas do usuário utilizando métodos como `strip()` e `upper()`, tornando a experiência mais robusta e amigável.
+O jogo normaliza as respostas do usuário com `strip()` e `upper()`, então `python`, `Python` e ` PYTHON ` são aceitos da mesma forma.
 
 ### Controle de Fluxo
 
-Loops, condicionais e validações controlam as rodadas, tentativas e reinicialização da aplicação.
+Loops, condicionais e validações controlam as rodadas, as tentativas e a reinicialização do jogo.
 
 ## Como Executar
 
-1. Certifique-se de possuir o Python instalado.
-2. Clone este repositório.
-3. Navegue até a pasta do projeto.
-4. Execute:
+1. Certifique-se de ter o Python 3 instalado.
+2. Clone este repositório e entre na pasta do projeto.
+3. Execute:
 
 ```bash
 python jogo.py
 ```
 
+As cores usam códigos ANSI e funcionam em terminais modernos (Linux, macOS e Windows Terminal). Em terminais muito antigos do Windows, podem aparecer símbolos no lugar das cores.
+
 ## Aprendizados
 
-Este projeto permitiu aprofundar conhecimentos em lógica de programação, manipulação de dados, organização de código e desenvolvimento de aplicações executadas diretamente no terminal.
+Este projeto me permitiu praticar a separação entre dados e lógica, o uso de dicionários e o controle de fluxo com loops. Dois detalhes de lógica ficaram no embaralhamento: ele pode, por acaso, devolver a própria palavra, então a função repete o sorteio até o resultado ser diferente; e palavras com espaço, como `VAN GOGH`, precisam ter o espaço preservado para o jogo continuar legível.
 
 ---
 
